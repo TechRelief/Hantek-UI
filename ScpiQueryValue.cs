@@ -210,14 +210,14 @@ namespace SCPI
                         {
                             unit = "μF"; //It can only measure up to 100μF, kinda useless!
                             dvalu = absvalu;
-                            if (dvalu < 1e-3)
+                            if (dvalu < 1e-9)
                             {
-                                dvalu *= 1e6;
+                                dvalu *= 1e12;
                                 unit = "pF";
                             }
-                            else if (dvalu <= 1)
+                            else if (dvalu < 1e6)
                             {
-                                dvalu *= 1e3;
+                                dvalu *= 1e9;
                                 unit = "nF";
                             }
                             break;
