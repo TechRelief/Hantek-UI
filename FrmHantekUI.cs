@@ -84,6 +84,8 @@ namespace Hantek_UI
 
                 ToolBar.Tag = btn; //Record which button is highlighted
                 if (btn != null) Hilite(btn);
+                Settings.Default.Mode = mode.ToString();
+                Settings.Default.Save();
                 if (hantek == null) //Should not happen in normal operation but you never know...
                 {
                     return MeasureMode.None;
@@ -220,8 +222,8 @@ namespace Hantek_UI
                     FormBorderStyle = FormBorderStyle.None;
                 string smode = Settings.Default.Mode;
                 MeasureMode mode = SetMode(GetModeFromString(smode));
-                Settings.Default.Mode = mode.ToString();
-                Settings.Default.Save();
+                //Settings.Default.Mode = mode.ToString();
+                //Settings.Default.Save();
                 TxtValue.ForeColor = Settings.Default.TextColor;
                 TxtMode.ForeColor = Settings.Default.ModeColor;
                 TxtUnit.ForeColor = Settings.Default.UnitColor;
