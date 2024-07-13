@@ -30,12 +30,17 @@ namespace SCPI
             //errorMsg lines are formatted as: {-|+}nnn, "Status String" 
             //It appears that it starts with + when there is no error or - for the error code!?
             int commaOffset = errorMsg.IndexOf(',');
-            string code = errorMsg[..commaOffset];
-            if (!(int.TryParse(code, out ErrId)))
+            if (commaOffset >= 1)
             {
-                throw new InvalidDataException($"ErrorItem(errorMsg) was invoked with an invalid errorMsg value: {errorMsg}");
+                string code = errorMsg[..commaOffset];
+                if (!(int.TryParse(code, out ErrId)))
+                {
+                    throw new InvalidDataException($"ErrorItem(errorMsg) was invoked with an invalid errorMsg value: {errorMsg}");
+                }
+                ErrDesc = errorMsg[(commaOffset + 1)..].Replace("\"", "");  //Don't need the qoutes that the device adds to the message.
             }
-            ErrDesc = errorMsg[(commaOffset + 1)..];
+            else
+                ErrDesc = errorMsg;
         }
 
         /// <summary>Initializes a new instance of the <see cref="T:SCPI.ErrorItem" /> class.</summary>

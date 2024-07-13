@@ -36,6 +36,8 @@
             TxtValue = new Label();
             BtnMenu = new Label();
             PnlMain = new Panel();
+            PicRunning = new PictureBox();
+            PicNotRunning = new PictureBox();
             TxtUnit = new Label();
             LblExpand = new Label();
             ImgError = new PictureBox();
@@ -66,6 +68,8 @@
             BtnDiode = new ToolStripButton();
             toolStripSeparator10 = new ToolStripSeparator();
             PnlMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PicRunning).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PicNotRunning).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ImgError).BeginInit();
             MnuPopup.SuspendLayout();
             ToolBar.SuspendLayout();
@@ -80,7 +84,7 @@
             BtnDCV.Image = (Image)resources.GetObject("BtnDCV.Image");
             BtnDCV.ImageTransparentColor = Color.Magenta;
             BtnDCV.Name = "BtnDCV";
-            BtnDCV.Size = new Size(43, 35);
+            BtnDCV.Size = new Size(35, 25);
             BtnDCV.Text = "DCV";
             BtnDCV.ToolTipText = "DC Voltage";
             BtnDCV.Click += BtnDCV_Click;
@@ -92,9 +96,9 @@
             LblHandle.CausesValidation = false;
             LblHandle.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             LblHandle.ForeColor = Color.White;
-            LblHandle.Location = new Point(715, 213);
+            LblHandle.Location = new Point(626, 160);
             LblHandle.Name = "LblHandle";
-            LblHandle.Size = new Size(33, 33);
+            LblHandle.Size = new Size(29, 25);
             LblHandle.TabIndex = 11;
             LblHandle.Text = "◢";
             LblHandle.TextAlign = ContentAlignment.TopRight;
@@ -108,9 +112,9 @@
             TxtMode.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             TxtMode.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TxtMode.ForeColor = Color.GreenYellow;
-            TxtMode.Location = new Point(202, 0);
+            TxtMode.Location = new Point(177, 0);
             TxtMode.Name = "TxtMode";
-            TxtMode.Size = new Size(389, 99);
+            TxtMode.Size = new Size(340, 74);
             TxtMode.TabIndex = 12;
             TxtMode.Text = "Resistance 2W";
             TxtMode.TextAlign = ContentAlignment.TopRight;
@@ -120,9 +124,9 @@
             TxtValue.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             TxtValue.CausesValidation = false;
             TxtValue.Font = new Font("Segoe UI Semibold", 63.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TxtValue.Location = new Point(-31, 87);
+            TxtValue.Location = new Point(-27, 65);
             TxtValue.Name = "TxtValue";
-            TxtValue.Size = new Size(633, 140);
+            TxtValue.Size = new Size(554, 105);
             TxtValue.TabIndex = 13;
             TxtValue.Text = "+123.456789";
             TxtValue.TextAlign = ContentAlignment.MiddleRight;
@@ -134,9 +138,9 @@
             BtnMenu.CausesValidation = false;
             BtnMenu.Font = new Font("Segoe UI Black", 20.25F, FontStyle.Bold);
             BtnMenu.ForeColor = Color.Orange;
-            BtnMenu.Location = new Point(701, -1);
+            BtnMenu.Location = new Point(613, -1);
             BtnMenu.Name = "BtnMenu";
-            BtnMenu.Size = new Size(44, 46);
+            BtnMenu.Size = new Size(36, 37);
             BtnMenu.TabIndex = 14;
             BtnMenu.Text = "≡";
             BtnMenu.Click += BtnMenu_Click;
@@ -145,6 +149,8 @@
             // 
             PnlMain.BackColor = Color.Transparent;
             PnlMain.CausesValidation = false;
+            PnlMain.Controls.Add(PicRunning);
+            PnlMain.Controls.Add(PicNotRunning);
             PnlMain.Controls.Add(LblHandle);
             PnlMain.Controls.Add(TxtUnit);
             PnlMain.Controls.Add(LblExpand);
@@ -154,13 +160,37 @@
             PnlMain.Controls.Add(TxtMode);
             PnlMain.Dock = DockStyle.Top;
             PnlMain.Location = new Point(0, 0);
-            PnlMain.Margin = new Padding(3, 4, 3, 4);
             PnlMain.Name = "PnlMain";
-            PnlMain.Size = new Size(745, 245);
+            PnlMain.Size = new Size(652, 184);
             PnlMain.TabIndex = 15;
             PnlMain.MouseDown += PnlMain_MouseDown;
             PnlMain.MouseMove += PnlMain_MouseMove;
             PnlMain.MouseUp += PnlMain_MouseUp;
+            // 
+            // PicRunning
+            // 
+            PicRunning.Image = Properties.Resources.Running;
+            PicRunning.ImageLocation = "";
+            PicRunning.Location = new Point(583, 7);
+            PicRunning.Name = "PicRunning";
+            PicRunning.Size = new Size(29, 28);
+            PicRunning.SizeMode = PictureBoxSizeMode.Zoom;
+            PicRunning.TabIndex = 22;
+            PicRunning.TabStop = false;
+            PicRunning.Visible = false;
+            PicRunning.Click += PicRunning_Click;
+            // 
+            // PicNotRunning
+            // 
+            PicNotRunning.Image = (Image)resources.GetObject("PicNotRunning.Image");
+            PicNotRunning.ImageLocation = "";
+            PicNotRunning.Location = new Point(583, 7);
+            PicNotRunning.Name = "PicNotRunning";
+            PicNotRunning.Size = new Size(29, 28);
+            PicNotRunning.SizeMode = PictureBoxSizeMode.Zoom;
+            PicNotRunning.TabIndex = 23;
+            PicNotRunning.TabStop = false;
+            PicNotRunning.Click += PicNotRunning_Click;
             // 
             // TxtUnit
             // 
@@ -168,9 +198,9 @@
             TxtUnit.CausesValidation = false;
             TxtUnit.Font = new Font("Segoe UI", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
             TxtUnit.ForeColor = Color.Cyan;
-            TxtUnit.Location = new Point(581, 103);
+            TxtUnit.Location = new Point(508, 77);
             TxtUnit.Name = "TxtUnit";
-            TxtUnit.Size = new Size(165, 111);
+            TxtUnit.Size = new Size(144, 83);
             TxtUnit.TabIndex = 16;
             TxtUnit.Text = "kHz";
             TxtUnit.TextAlign = ContentAlignment.MiddleLeft;
@@ -183,9 +213,9 @@
             LblExpand.FlatStyle = FlatStyle.Flat;
             LblExpand.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LblExpand.ForeColor = Color.White;
-            LblExpand.Location = new Point(673, 216);
+            LblExpand.Location = new Point(589, 162);
             LblExpand.Name = "LblExpand";
-            LblExpand.Size = new Size(46, 28);
+            LblExpand.Size = new Size(38, 21);
             LblExpand.TabIndex = 20;
             LblExpand.Text = "▲▼";
             LblExpand.UseMnemonic = false;
@@ -197,10 +227,9 @@
             ImgError.BackgroundImageLayout = ImageLayout.Zoom;
             ImgError.Image = Properties.Resources.Bang;
             ImgError.InitialImage = Properties.Resources.Bang;
-            ImgError.Location = new Point(657, 0);
-            ImgError.Margin = new Padding(3, 4, 3, 4);
+            ImgError.Location = new Point(545, 0);
             ImgError.Name = "ImgError";
-            ImgError.Size = new Size(37, 43);
+            ImgError.Size = new Size(32, 32);
             ImgError.SizeMode = PictureBoxSizeMode.Zoom;
             ImgError.TabIndex = 17;
             ImgError.TabStop = false;
@@ -217,12 +246,12 @@
             MnuPopup.ImageScalingSize = new Size(20, 20);
             MnuPopup.Items.AddRange(new ToolStripItem[] { ItmStartStop, ItmSettings, ItmExit });
             MnuPopup.Name = "MnuPopup";
-            MnuPopup.Size = new Size(155, 76);
+            MnuPopup.Size = new Size(134, 70);
             // 
             // ItmStartStop
             // 
             ItmStartStop.Name = "ItmStartStop";
-            ItmStartStop.Size = new Size(154, 24);
+            ItmStartStop.Size = new Size(133, 22);
             ItmStartStop.Text = "&Start / Stop";
             ItmStartStop.ToolTipText = "Start or Stop the OWON display.";
             ItmStartStop.Click += ItmStart_Click;
@@ -230,14 +259,14 @@
             // ItmSettings
             // 
             ItmSettings.Name = "ItmSettings";
-            ItmSettings.Size = new Size(154, 24);
+            ItmSettings.Size = new Size(133, 22);
             ItmSettings.Text = "Settings";
             ItmSettings.Click += ItmSettings_Click;
             // 
             // ItmExit
             // 
             ItmExit.Name = "ItmExit";
-            ItmExit.Size = new Size(154, 24);
+            ItmExit.Size = new Size(133, 22);
             ItmExit.Text = "&Exit";
             ItmExit.ToolTipText = "Exit the application.";
             ItmExit.Click += ItmExit_Click;
@@ -254,10 +283,10 @@
             ToolBar.ImageScalingSize = new Size(20, 20);
             ToolBar.Items.AddRange(new ToolStripItem[] { toolStripSeparator11, BtnDCV, toolStripSeparator1, BtnACV, toolStripSeparator2, BtnDCI, toolStripSeparator3, BtnACI, toolStripSeparator4, BtnR2W, toolStripSeparator5, BtnR4W, toolStripSeparator6, BtnFreq, toolStripSeparator7, BtnCap, toolStripSeparator8, BtnCont, toolStripSeparator9, BtnDiode, toolStripSeparator10 });
             ToolBar.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            ToolBar.Location = new Point(0, 245);
+            ToolBar.Location = new Point(0, 184);
             ToolBar.Name = "ToolBar";
             ToolBar.Padding = new Padding(0);
-            ToolBar.Size = new Size(745, 38);
+            ToolBar.Size = new Size(652, 28);
             ToolBar.Stretch = true;
             ToolBar.TabIndex = 16;
             ToolBar.Text = "ToolBar";
@@ -265,12 +294,12 @@
             // toolStripSeparator11
             // 
             toolStripSeparator11.Name = "toolStripSeparator11";
-            toolStripSeparator11.Size = new Size(6, 38);
+            toolStripSeparator11.Size = new Size(6, 28);
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 38);
+            toolStripSeparator1.Size = new Size(6, 28);
             // 
             // BtnACV
             // 
@@ -281,7 +310,7 @@
             BtnACV.Image = (Image)resources.GetObject("BtnACV.Image");
             BtnACV.ImageTransparentColor = Color.Magenta;
             BtnACV.Name = "BtnACV";
-            BtnACV.Size = new Size(43, 35);
+            BtnACV.Size = new Size(34, 25);
             BtnACV.Text = "ACV";
             BtnACV.ToolTipText = "AC Voltage";
             BtnACV.Click += BtnACV_Click;
@@ -289,7 +318,7 @@
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(6, 38);
+            toolStripSeparator2.Size = new Size(6, 28);
             // 
             // BtnDCI
             // 
@@ -300,7 +329,7 @@
             BtnDCI.Image = (Image)resources.GetObject("BtnDCI.Image");
             BtnDCI.ImageTransparentColor = Color.Magenta;
             BtnDCI.Name = "BtnDCI";
-            BtnDCI.Size = new Size(38, 35);
+            BtnDCI.Size = new Size(31, 25);
             BtnDCI.Text = "DCI";
             BtnDCI.ToolTipText = "DC Current";
             BtnDCI.Click += BtnDCI_Click;
@@ -308,7 +337,7 @@
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(6, 38);
+            toolStripSeparator3.Size = new Size(6, 28);
             // 
             // BtnACI
             // 
@@ -319,7 +348,7 @@
             BtnACI.Image = (Image)resources.GetObject("BtnACI.Image");
             BtnACI.ImageTransparentColor = Color.Magenta;
             BtnACI.Name = "BtnACI";
-            BtnACI.Size = new Size(38, 35);
+            BtnACI.Size = new Size(30, 25);
             BtnACI.Text = "ACI";
             BtnACI.ToolTipText = "AC Current";
             BtnACI.Click += BtnACI_Click;
@@ -327,7 +356,7 @@
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(6, 38);
+            toolStripSeparator4.Size = new Size(6, 28);
             // 
             // BtnR2W
             // 
@@ -338,7 +367,7 @@
             BtnR2W.Image = (Image)resources.GetObject("BtnR2W.Image");
             BtnR2W.ImageTransparentColor = Color.Magenta;
             BtnR2W.Name = "BtnR2W";
-            BtnR2W.Size = new Size(47, 35);
+            BtnR2W.Size = new Size(38, 25);
             BtnR2W.Text = "R2W";
             BtnR2W.ToolTipText = "Resistance (2 Wire)";
             BtnR2W.Click += BtnR2W_Click;
@@ -346,7 +375,7 @@
             // toolStripSeparator5
             // 
             toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(6, 38);
+            toolStripSeparator5.Size = new Size(6, 28);
             // 
             // BtnR4W
             // 
@@ -357,7 +386,7 @@
             BtnR4W.Image = (Image)resources.GetObject("BtnR4W.Image");
             BtnR4W.ImageTransparentColor = Color.Magenta;
             BtnR4W.Name = "BtnR4W";
-            BtnR4W.Size = new Size(47, 35);
+            BtnR4W.Size = new Size(38, 25);
             BtnR4W.Text = "R4W";
             BtnR4W.ToolTipText = "Resistance (4 Wire)";
             BtnR4W.Click += BtnR4W_Click;
@@ -365,7 +394,7 @@
             // toolStripSeparator6
             // 
             toolStripSeparator6.Name = "toolStripSeparator6";
-            toolStripSeparator6.Size = new Size(6, 38);
+            toolStripSeparator6.Size = new Size(6, 28);
             // 
             // BtnFreq
             // 
@@ -376,7 +405,7 @@
             BtnFreq.Image = (Image)resources.GetObject("BtnFreq.Image");
             BtnFreq.ImageTransparentColor = Color.Magenta;
             BtnFreq.Name = "BtnFreq";
-            BtnFreq.Size = new Size(50, 35);
+            BtnFreq.Size = new Size(40, 25);
             BtnFreq.Text = "FREQ";
             BtnFreq.ToolTipText = "Frequency";
             BtnFreq.Click += BtnFreq_Click;
@@ -384,7 +413,7 @@
             // toolStripSeparator7
             // 
             toolStripSeparator7.Name = "toolStripSeparator7";
-            toolStripSeparator7.Size = new Size(6, 38);
+            toolStripSeparator7.Size = new Size(6, 28);
             // 
             // BtnCap
             // 
@@ -395,7 +424,7 @@
             BtnCap.Image = (Image)resources.GetObject("BtnCap.Image");
             BtnCap.ImageTransparentColor = Color.Magenta;
             BtnCap.Name = "BtnCap";
-            BtnCap.Size = new Size(42, 35);
+            BtnCap.Size = new Size(33, 25);
             BtnCap.Text = "CAP";
             BtnCap.ToolTipText = "Capacitance";
             BtnCap.Click += BtnCap_Click;
@@ -403,7 +432,7 @@
             // toolStripSeparator8
             // 
             toolStripSeparator8.Name = "toolStripSeparator8";
-            toolStripSeparator8.Size = new Size(6, 38);
+            toolStripSeparator8.Size = new Size(6, 28);
             // 
             // BtnCont
             // 
@@ -414,7 +443,7 @@
             BtnCont.Image = (Image)resources.GetObject("BtnCont.Image");
             BtnCont.ImageTransparentColor = Color.Magenta;
             BtnCont.Name = "BtnCont";
-            BtnCont.Size = new Size(54, 35);
+            BtnCont.Size = new Size(43, 25);
             BtnCont.Text = "CONT";
             BtnCont.ToolTipText = "Continuity";
             BtnCont.Click += BtnCont_Click;
@@ -422,7 +451,7 @@
             // toolStripSeparator9
             // 
             toolStripSeparator9.Name = "toolStripSeparator9";
-            toolStripSeparator9.Size = new Size(6, 38);
+            toolStripSeparator9.Size = new Size(6, 28);
             // 
             // BtnDiode
             // 
@@ -433,7 +462,7 @@
             BtnDiode.Image = (Image)resources.GetObject("BtnDiode.Image");
             BtnDiode.ImageTransparentColor = Color.Magenta;
             BtnDiode.Name = "BtnDiode";
-            BtnDiode.Size = new Size(59, 35);
+            BtnDiode.Size = new Size(48, 25);
             BtnDiode.Text = "DIODE";
             BtnDiode.ToolTipText = "Diode Mode";
             BtnDiode.Click += BtnDiode_Click;
@@ -441,25 +470,24 @@
             // toolStripSeparator10
             // 
             toolStripSeparator10.Name = "toolStripSeparator10";
-            toolStripSeparator10.Size = new Size(6, 38);
+            toolStripSeparator10.Size = new Size(6, 28);
             // 
             // FrmHantekUI
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(64, 64, 64);
             CausesValidation = false;
-            ClientSize = new Size(745, 283);
+            ClientSize = new Size(652, 212);
             Controls.Add(ToolBar);
             Controls.Add(PnlMain);
             ForeColor = Color.Yellow;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MinimizeBox = false;
-            MinimumSize = new Size(340, 47);
+            MinimumSize = new Size(300, 45);
             Name = "FrmHantekUI";
             SizeGripStyle = SizeGripStyle.Show;
             Text = "Hantek DMM";
@@ -469,6 +497,8 @@
             Layout += FrmHantekUI_Layout;
             PnlMain.ResumeLayout(false);
             PnlMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PicRunning).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PicNotRunning).EndInit();
             ((System.ComponentModel.ISupportInitialize)ImgError).EndInit();
             MnuPopup.ResumeLayout(false);
             ToolBar.ResumeLayout(false);
@@ -522,5 +552,7 @@
         private ToolStripSeparator toolStripSeparator11;
         private ToolStripMenuItem ItmTextColor;
         private ToolStripMenuItem ItmSettings;
+        private PictureBox PicRunning;
+        private PictureBox PicNotRunning;
     }
 }

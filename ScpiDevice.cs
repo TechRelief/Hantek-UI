@@ -196,6 +196,24 @@ namespace SCPI
             catch { }
         }
 
+        /// <summary>
+        /// Adds the error message to the Errors list.  The error number will be set to 1 unless it is defined in the message before a comma. Limited error checking is done so make sure the error message does not include a comma elsewhere...
+        /// </summary>
+        /// <param name="errMsg">The error message, to add an error number place it after a comma: "123, Error Message".</param>
+        public void SetError(string errMsg)
+        {
+            try
+            {
+                errMsg = errMsg.Trim();
+                if (string.IsNullOrEmpty(errMsg))
+                    return;
+                if (!errMsg.Contains(','))
+                    errMsg = "1," + errMsg;
+                errors.Add(new ErrorItem(errMsg));
+            }
+            catch { }
+        }
+
         /// <summary>Reads the measure mode from the device like DCV, ACV, DCA, ACA etc..</summary>
         /// <returns>MeasureMode.</returns>
         public MeasureMode GetMeasureMode()
