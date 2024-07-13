@@ -93,7 +93,7 @@ namespace Hantek_UI
                 hantek.SetDeviceMode(mode, out int errCount);
                 qryValue.Mode = mode;
                 ImgError.Visible = (hantek.Errors.Count > 0);
-                Thread.Sleep(2000); //So the Hantek DMM seems to become unresponsive if you change its mode and then immediately ask for a reading, so a delay was needed here.
+                Thread.Sleep(3000); //So the Hantek DMM seems to become unresponsive if you change its mode and then immediately ask for a reading, so a delay was needed here.
                 DisplayValues();
                 return mode;
             }
