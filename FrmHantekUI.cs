@@ -4,7 +4,7 @@
 // Created          : 07-13-2024
 //
 // Last Modified By : Ed
-// Last Modified On : 07-13-2024
+// Last Modified On : 07-15-2024
 // ***********************************************************************
 // <summary>
 // An Application for displaying and controlling a Hantek HDM3000 series
@@ -21,7 +21,7 @@ using Windows.Security.EnterpriseData;
 namespace Hantek_UI
 {
     /// <summary>
-    /// Class FrmHantekUI.
+    /// Class FrmHantekUI is a Windows Forms based U/I to control and view HDM3000 series DMM operations.
     /// Implements the <see cref="System.Windows.Forms.Form" />
     /// </summary>
     /// <seealso cref="System.Windows.Forms.Form" />
@@ -825,6 +825,5 @@ namespace Hantek_UI
         }
 
         #endregion Settings
-
     }
 }
