@@ -43,6 +43,8 @@
             BtnUnitColor = new Button();
             BtnModeColor = new Button();
             panel1 = new Panel();
+            LblInterval = new Label();
+            NumInterval = new NumericUpDown();
             LblPrecHelp = new Label();
             LblPrecision = new Label();
             LblShowWIndowBorder = new Label();
@@ -51,16 +53,16 @@
             PnlSettings.SuspendLayout();
             TblPanel.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)NumInterval).BeginInit();
             SuspendLayout();
             // 
             // BtnOK
             // 
             BtnOK.AutoSize = true;
             BtnOK.DialogResult = DialogResult.OK;
-            BtnOK.Location = new Point(243, 295);
-            BtnOK.Margin = new Padding(3, 4, 3, 4);
+            BtnOK.Location = new Point(213, 221);
             BtnOK.Name = "BtnOK";
-            BtnOK.Size = new Size(39, 33);
+            BtnOK.Size = new Size(34, 25);
             BtnOK.TabIndex = 0;
             BtnOK.Text = "OK";
             BtnOK.UseVisualStyleBackColor = true;
@@ -69,10 +71,9 @@
             // 
             BtnCancel.AutoSize = true;
             BtnCancel.DialogResult = DialogResult.Cancel;
-            BtnCancel.Location = new Point(288, 295);
-            BtnCancel.Margin = new Padding(3, 4, 3, 4);
+            BtnCancel.Location = new Point(252, 221);
             BtnCancel.Name = "BtnCancel";
-            BtnCancel.Size = new Size(67, 33);
+            BtnCancel.Size = new Size(59, 25);
             BtnCancel.TabIndex = 1;
             BtnCancel.Text = "Cancel";
             BtnCancel.UseVisualStyleBackColor = true;
@@ -81,9 +82,9 @@
             // 
             LblWindowColor.Anchor = AnchorStyles.Right;
             LblWindowColor.AutoSize = true;
-            LblWindowColor.Location = new Point(7, 23);
+            LblWindowColor.Location = new Point(14, 17);
             LblWindowColor.Name = "LblWindowColor";
-            LblWindowColor.Size = new Size(104, 20);
+            LblWindowColor.Size = new Size(83, 15);
             LblWindowColor.TabIndex = 2;
             LblWindowColor.Text = "Window Color";
             // 
@@ -93,9 +94,8 @@
             PnlSettings.Controls.Add(panel1);
             PnlSettings.Dock = DockStyle.Top;
             PnlSettings.Location = new Point(0, 0);
-            PnlSettings.Margin = new Padding(3, 4, 3, 4);
             PnlSettings.Name = "PnlSettings";
-            PnlSettings.Size = new Size(687, 287);
+            PnlSettings.Size = new Size(601, 215);
             PnlSettings.TabIndex = 3;
             PnlSettings.WrapContents = false;
             // 
@@ -103,9 +103,9 @@
             // 
             TblPanel.Anchor = AnchorStyles.Right;
             TblPanel.ColumnCount = 3;
-            TblPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 114F));
-            TblPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 51F));
-            TblPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
+            TblPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
+            TblPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 45F));
+            TblPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 105F));
             TblPanel.Controls.Add(label2, 0, 3);
             TblPanel.Controls.Add(LblTextColor, 0, 1);
             TblPanel.Controls.Add(LblWindowColor, 0, 0);
@@ -115,24 +115,23 @@
             TblPanel.Controls.Add(LblUnitColor, 0, 2);
             TblPanel.Controls.Add(BtnUnitColor, 1, 2);
             TblPanel.Controls.Add(BtnModeColor, 1, 3);
-            TblPanel.Location = new Point(3, 4);
-            TblPanel.Margin = new Padding(3, 4, 3, 4);
+            TblPanel.Location = new Point(3, 3);
             TblPanel.Name = "TblPanel";
             TblPanel.RowCount = 4;
-            TblPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 67F));
-            TblPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 67F));
-            TblPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 67F));
-            TblPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 67F));
-            TblPanel.Size = new Size(278, 275);
+            TblPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            TblPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            TblPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            TblPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            TblPanel.Size = new Size(243, 206);
             TblPanel.TabIndex = 5;
             // 
             // label2
             // 
             label2.Anchor = AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Location = new Point(28, 218);
+            label2.Location = new Point(3, 170);
             label2.Name = "label2";
-            label2.Size = new Size(83, 40);
+            label2.Size = new Size(94, 15);
             label2.TabIndex = 8;
             label2.Text = "Mode Text Color";
             // 
@@ -140,9 +139,9 @@
             // 
             LblTextColor.Anchor = AnchorStyles.Right;
             LblTextColor.AutoSize = true;
-            LblTextColor.Location = new Point(31, 80);
+            LblTextColor.Location = new Point(6, 67);
             LblTextColor.Name = "LblTextColor";
-            LblTextColor.Size = new Size(80, 40);
+            LblTextColor.Size = new Size(91, 15);
             LblTextColor.TabIndex = 4;
             LblTextColor.Text = "Value Text Color";
             // 
@@ -150,10 +149,9 @@
             // 
             ChkTransparent.Anchor = AnchorStyles.Left;
             ChkTransparent.AutoSize = true;
-            ChkTransparent.Location = new Point(168, 21);
-            ChkTransparent.Margin = new Padding(3, 4, 3, 4);
+            ChkTransparent.Location = new Point(148, 15);
             ChkTransparent.Name = "ChkTransparent";
-            ChkTransparent.Size = new Size(108, 24);
+            ChkTransparent.Size = new Size(87, 19);
             ChkTransparent.TabIndex = 6;
             ChkTransparent.Text = "Transparent";
             ChkTransparent.UseVisualStyleBackColor = true;
@@ -164,10 +162,9 @@
             BtnWindowColor.Anchor = AnchorStyles.Left;
             BtnWindowColor.BackColor = Color.Gray;
             BtnWindowColor.FlatStyle = FlatStyle.Flat;
-            BtnWindowColor.Location = new Point(117, 16);
-            BtnWindowColor.Margin = new Padding(3, 4, 3, 4);
+            BtnWindowColor.Location = new Point(103, 12);
             BtnWindowColor.Name = "BtnWindowColor";
-            BtnWindowColor.Size = new Size(35, 35);
+            BtnWindowColor.Size = new Size(31, 26);
             BtnWindowColor.TabIndex = 3;
             BtnWindowColor.UseVisualStyleBackColor = false;
             BtnWindowColor.Click += BtnWindowColor_Click;
@@ -177,10 +174,9 @@
             BtnTextColor.Anchor = AnchorStyles.Left;
             BtnTextColor.BackColor = Color.Yellow;
             BtnTextColor.FlatStyle = FlatStyle.Flat;
-            BtnTextColor.Location = new Point(117, 82);
-            BtnTextColor.Margin = new Padding(3, 4, 3, 4);
+            BtnTextColor.Location = new Point(103, 61);
             BtnTextColor.Name = "BtnTextColor";
-            BtnTextColor.Size = new Size(35, 36);
+            BtnTextColor.Size = new Size(31, 27);
             BtnTextColor.TabIndex = 5;
             BtnTextColor.UseVisualStyleBackColor = false;
             BtnTextColor.Click += BtnTextColor_Click;
@@ -189,9 +185,9 @@
             // 
             LblUnitColor.Anchor = AnchorStyles.Right;
             LblUnitColor.AutoSize = true;
-            LblUnitColor.Location = new Point(4, 157);
+            LblUnitColor.Location = new Point(12, 117);
             LblUnitColor.Name = "LblUnitColor";
-            LblUnitColor.Size = new Size(107, 20);
+            LblUnitColor.Size = new Size(85, 15);
             LblUnitColor.TabIndex = 7;
             LblUnitColor.Text = "Unit Text Color";
             // 
@@ -200,10 +196,9 @@
             BtnUnitColor.Anchor = AnchorStyles.Left;
             BtnUnitColor.BackColor = Color.Yellow;
             BtnUnitColor.FlatStyle = FlatStyle.Flat;
-            BtnUnitColor.Location = new Point(117, 149);
-            BtnUnitColor.Margin = new Padding(3, 4, 3, 4);
+            BtnUnitColor.Location = new Point(103, 111);
             BtnUnitColor.Name = "BtnUnitColor";
-            BtnUnitColor.Size = new Size(35, 36);
+            BtnUnitColor.Size = new Size(31, 27);
             BtnUnitColor.TabIndex = 9;
             BtnUnitColor.UseVisualStyleBackColor = false;
             BtnUnitColor.Click += BtnUnitColor_Click;
@@ -213,40 +208,62 @@
             BtnModeColor.Anchor = AnchorStyles.Left;
             BtnModeColor.BackColor = Color.Yellow;
             BtnModeColor.FlatStyle = FlatStyle.Flat;
-            BtnModeColor.Location = new Point(117, 220);
-            BtnModeColor.Margin = new Padding(3, 4, 3, 4);
+            BtnModeColor.Location = new Point(103, 164);
             BtnModeColor.Name = "BtnModeColor";
-            BtnModeColor.Size = new Size(35, 36);
+            BtnModeColor.Size = new Size(31, 27);
             BtnModeColor.TabIndex = 10;
             BtnModeColor.UseVisualStyleBackColor = false;
             BtnModeColor.Click += BtnModeColor_Click;
             // 
             // panel1
             // 
+            panel1.Controls.Add(LblInterval);
+            panel1.Controls.Add(NumInterval);
             panel1.Controls.Add(LblPrecHelp);
             panel1.Controls.Add(LblPrecision);
             panel1.Controls.Add(LblShowWIndowBorder);
             panel1.Controls.Add(CboPrecision);
             panel1.Controls.Add(ChkWindowBorder);
-            panel1.Location = new Point(287, 4);
-            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Location = new Point(252, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(394, 275);
+            panel1.Size = new Size(345, 206);
             panel1.TabIndex = 7;
+            // 
+            // LblInterval
+            // 
+            LblInterval.Location = new Point(22, 101);
+            LblInterval.Name = "LblInterval";
+            LblInterval.Size = new Size(121, 15);
+            LblInterval.TabIndex = 12;
+            LblInterval.Text = "Timer Interval (mS)";
+            LblInterval.TextAlign = ContentAlignment.TopRight;
+            // 
+            // NumInterval
+            // 
+            NumInterval.BorderStyle = BorderStyle.FixedSingle;
+            NumInterval.Increment = new decimal(new int[] { 50, 0, 0, 0 });
+            NumInterval.Location = new Point(151, 102);
+            NumInterval.Maximum = new decimal(new int[] { 5000, 0, 0, 0 });
+            NumInterval.Minimum = new decimal(new int[] { 100, 0, 0, 0 });
+            NumInterval.Name = "NumInterval";
+            NumInterval.Size = new Size(44, 23);
+            NumInterval.TabIndex = 11;
+            NumInterval.Value = new decimal(new int[] { 250, 0, 0, 0 });
+            NumInterval.ValueChanged += NumInterval_ValueChanged;
             // 
             // LblPrecHelp
             // 
-            LblPrecHelp.Location = new Point(230, 83);
+            LblPrecHelp.Location = new Point(201, 62);
             LblPrecHelp.Name = "LblPrecHelp";
-            LblPrecHelp.Size = new Size(149, 55);
+            LblPrecHelp.Size = new Size(130, 41);
             LblPrecHelp.TabIndex = 10;
             LblPrecHelp.Text = "(a.k.a The number of decimal places)";
             // 
             // LblPrecision
             // 
-            LblPrecision.Location = new Point(25, 83);
+            LblPrecision.Location = new Point(22, 62);
             LblPrecision.Name = "LblPrecision";
-            LblPrecision.Size = new Size(138, 20);
+            LblPrecision.Size = new Size(121, 15);
             LblPrecision.TabIndex = 9;
             LblPrecision.Text = "Precision";
             LblPrecision.TextAlign = ContentAlignment.TopRight;
@@ -254,9 +271,9 @@
             // LblShowWIndowBorder
             // 
             LblShowWIndowBorder.AutoSize = true;
-            LblShowWIndowBorder.Location = new Point(11, 25);
+            LblShowWIndowBorder.Location = new Point(10, 19);
             LblShowWIndowBorder.Name = "LblShowWIndowBorder";
-            LblShowWIndowBorder.Size = new Size(153, 20);
+            LblShowWIndowBorder.Size = new Size(121, 15);
             LblShowWIndowBorder.TabIndex = 8;
             LblShowWIndowBorder.Text = "Show Window Border";
             // 
@@ -264,20 +281,18 @@
             // 
             CboPrecision.FormattingEnabled = true;
             CboPrecision.Items.AddRange(new object[] { "0", "1", "2", "3", "4", "5", "6" });
-            CboPrecision.Location = new Point(173, 77);
-            CboPrecision.Margin = new Padding(3, 4, 3, 4);
+            CboPrecision.Location = new Point(151, 58);
             CboPrecision.Name = "CboPrecision";
-            CboPrecision.Size = new Size(50, 28);
+            CboPrecision.Size = new Size(44, 23);
             CboPrecision.TabIndex = 7;
             CboPrecision.SelectedIndexChanged += CboPrecision_SelectedIndexChanged;
             // 
             // ChkWindowBorder
             // 
             ChkWindowBorder.Anchor = AnchorStyles.Left;
-            ChkWindowBorder.Location = new Point(173, 23);
-            ChkWindowBorder.Margin = new Padding(3, 4, 3, 4);
+            ChkWindowBorder.Location = new Point(151, 17);
             ChkWindowBorder.Name = "ChkWindowBorder";
-            ChkWindowBorder.Size = new Size(34, 27);
+            ChkWindowBorder.Size = new Size(30, 20);
             ChkWindowBorder.TabIndex = 6;
             ChkWindowBorder.UseVisualStyleBackColor = true;
             ChkWindowBorder.CheckedChanged += ChkWindowBorder_CheckedChanged;
@@ -285,18 +300,17 @@
             // FrmSettings
             // 
             AcceptButton = BtnOK;
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             CancelButton = BtnCancel;
-            ClientSize = new Size(687, 332);
+            ClientSize = new Size(601, 249);
             ControlBox = false;
             Controls.Add(PnlSettings);
             Controls.Add(BtnCancel);
             Controls.Add(BtnOK);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmSettings";
             Text = "Settings";
             TopMost = true;
@@ -306,6 +320,7 @@
             TblPanel.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)NumInterval).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -332,5 +347,7 @@
         private Label LblPrecision;
         private Label LblShowWIndowBorder;
         private Label LblPrecHelp;
+        private NumericUpDown NumInterval;
+        private Label LblInterval;
     }
 }

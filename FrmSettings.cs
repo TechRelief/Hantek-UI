@@ -23,6 +23,7 @@ namespace Hantek_UI
         public Color? ModeColor { get; set; }
         public int? Precision { get; set; }
         public bool? WindowBorder { get; set; }
+        public decimal? Interval { get; set; }
 
         private bool initializing;
         private void FrmSettings_Load(object sender, EventArgs e)
@@ -35,13 +36,13 @@ namespace Hantek_UI
             ChkTransparent.Checked = Settings.Default.WindowColor == Color.Transparent;
             ChkWindowBorder.Checked = Settings.Default.HasBorder;
             CboPrecision.Text = Settings.Default.Precision.ToString();
+            NumInterval.Value = Settings.Default.Interval;
             initializing = false;
         }
 
         private Color? SelectColor(Button colorBtn)
         {
             Color color = colorBtn.BackColor;
-            //bool isChanged = false;
             using ColorDialog dlgColor = new();
             dlgColor.AnyColor = true;
             dlgColor.Color = color;
@@ -61,9 +62,13 @@ namespace Hantek_UI
 
         private void BtnWindowColor_Click(object sender, EventArgs e)
         {
-            WindowColor = SelectColor(BtnWindowColor);
-            if (WindowColor != null)
+            Color? tmpColor =  SelectColor(BtnWindowColor);
+            if (tmpColor != null)
+            {
+                if (ChkTransparent.Checked) ChkTransparent.Checked = false;
+                WindowColor = tmpColor;
                 BtnWindowColor.BackColor = WindowColor.Value;
+            }
         }
 
         private void BtnUnitColor_Click(object sender, EventArgs e)
@@ -88,19 +93,12 @@ namespace Hantek_UI
                 {
                     WindowColor = Color.Transparent;
                     BtnWindowColor.BackColor = Color.Transparent;
+                    ChkWindowBorder.Checked = false;
                 }
                 else
                 {
-                    if (Settings.Default.WindowColor == Color.Transparent)
-                    {
-                        WindowColor = Color.Black;
-                        BtnWindowColor.BackColor = Color.Black;
-                    }
-                    else
-                    {
-                        WindowColor = Settings.Default.WindowColor;
-                        BtnWindowColor.BackColor = Settings.Default.WindowColor;
-                    }
+                    WindowColor = Color.Black;
+                    BtnWindowColor.BackColor = Color.Black;
                 }
             }
         }
@@ -119,11 +117,21 @@ namespace Hantek_UI
                 }
             }
         }
+
         private void ChkWindowBorder_CheckedChanged(object sender, EventArgs e)
         {
             if (!initializing)
             {
                 WindowBorder = ChkWindowBorder.Checked;
+                if (ChkWindowBorder.Checked) ChkTransparent.Checked = false;
+            }
+        }
+
+        private void NumInterval_ValueChanged(object sender, EventArgs e)
+        {
+            if (!initializing)
+            {
+                Interval = NumInterval.Value;
             }
         }
     }

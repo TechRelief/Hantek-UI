@@ -328,11 +328,10 @@ namespace Hantek_UI
                     FormBorderStyle = FormBorderStyle.None;
                 string smode = Settings.Default.Mode;
                 MeasureMode mode = SetMode(GetModeFromString(smode));
-                //Settings.Default.Mode = mode.ToString();
-                //Settings.Default.Save();
                 TxtValue.ForeColor = Settings.Default.TextColor;
                 TxtMode.ForeColor = Settings.Default.ModeColor;
                 TxtUnit.ForeColor = Settings.Default.UnitColor;
+                UpdateTimer.Interval = Convert.ToInt32(Settings.Default.Interval);
             }
             catch (Exception ex)
             {
@@ -512,18 +511,21 @@ namespace Hantek_UI
         private void SetWindowColor(Color color)
         {
             bool isTransparent = (color == Color.Transparent);
-            Settings.Default.WindowColor = color;
-            Settings.Default.Save();
-
             if (isTransparent)
             {
-                TransparencyKey = BackColor;
+                Settings.Default.WindowColor = Color.Transparent;
+                color = Color.Black;
+                TransparencyKey = color;
+                BackColor = color;
             }
             else
             {
-                TransparencyKey = Color.LimeGreen;
+                if (color == Color.White) //If White some of the controls won't show up!
+                    color = Color.Black;
+                TransparencyKey = Color.White;
                 BackColor = color;
             }
+            Settings.Default.Save();
         }
 
         #endregion Menu Commands
@@ -604,7 +606,7 @@ namespace Hantek_UI
         private static void Hilite(ToolStripButton btn)
         {
             btn.ForeColor = Color.Firebrick;
-            btn.BackColor = Color.Linen;
+            btn.BackColor = Color.Snow;
         }
 
         /// <summary>
@@ -613,8 +615,8 @@ namespace Hantek_UI
         /// <param name="btn">The BTN.</param>
         private static void Lowlite(ToolStripButton btn)
         {
-            btn.ForeColor = Color.White;
-            btn.BackColor = Color.DimGray;
+            btn.ForeColor = Color.Snow;
+            btn.BackColor = Color.FromArgb(64, 64, 64);
         }
 
         /// <summary>
@@ -805,6 +807,12 @@ namespace Hantek_UI
                         if (precision >= 10) precision = 5;
                         qryValue?.SetFormatMask(precision);
                         Settings.Default.Precision = precision;
+                    }
+                    //Timer Interval
+                    if (frmSettings.Interval != null)
+                    {
+                        Settings.Default.Interval = frmSettings.Interval.Value;
+                        UpdateTimer.Interval = Convert.ToInt32(frmSettings.Interval);
                     }
                     Settings.Default.Save();
                     DisplayValues();

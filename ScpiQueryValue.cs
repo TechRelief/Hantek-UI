@@ -208,16 +208,16 @@ namespace SCPI
                         }
                         case MeasureMode.CAP:
                         {
-                            unit = "μF"; //It can only measure up to 100μF, kinda useless!
-                            dvalu = absvalu;
-                            if (dvalu < 1e-9)
+                            unit = "μF"; //It can only measure up to about 120μF, kinda useless!
+                            dvalu = absvalu * 1e6; //Value appears to be in Farads so convert to μF
+                            if (dvalu < 1e-3)
                             {
-                                dvalu *= 1e12;
+                                dvalu *= 1e6;
                                 unit = "pF";
                             }
-                            else if (dvalu < 1e6)
+                            else if (dvalu < 1)
                             {
-                                dvalu *= 1e9;
+                                dvalu *= 1e3;
                                 unit = "nF";
                             }
                             break;

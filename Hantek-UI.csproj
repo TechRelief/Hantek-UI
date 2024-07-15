@@ -11,6 +11,10 @@
     <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
     <StartupObject></StartupObject>
     <ApplicationIcon>Mulitmeter.ico</ApplicationIcon>
+    <Title>Hantek U/I Application</Title>
+    <Description>Aplication to Control and View Hantek HDM3000 series information</Description>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
