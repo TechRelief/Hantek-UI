@@ -248,12 +248,12 @@
             MnuPopup.ImageScalingSize = new Size(20, 20);
             MnuPopup.Items.AddRange(new ToolStripItem[] { ItmStartStop, ItmSettings, ItmExit });
             MnuPopup.Name = "MnuPopup";
-            MnuPopup.Size = new Size(181, 92);
+            MnuPopup.Size = new Size(134, 70);
             // 
             // ItmStartStop
             // 
             ItmStartStop.Name = "ItmStartStop";
-            ItmStartStop.Size = new Size(180, 22);
+            ItmStartStop.Size = new Size(133, 22);
             ItmStartStop.Text = "&Start / Stop";
             ItmStartStop.ToolTipText = "Start or Stop the OWON display.";
             ItmStartStop.Click += ItmStart_Click;
@@ -261,14 +261,14 @@
             // ItmSettings
             // 
             ItmSettings.Name = "ItmSettings";
-            ItmSettings.Size = new Size(180, 22);
+            ItmSettings.Size = new Size(133, 22);
             ItmSettings.Text = "Settings";
             ItmSettings.Click += ItmSettings_Click;
             // 
             // ItmExit
             // 
             ItmExit.Name = "ItmExit";
-            ItmExit.Size = new Size(180, 22);
+            ItmExit.Size = new Size(133, 22);
             ItmExit.Text = "&Exit";
             ItmExit.ToolTipText = "Exit the application.";
             ItmExit.Click += ItmExit_Click;
@@ -486,7 +486,7 @@
             Name = "FrmHantekUI";
             Text = "Hantek DMM";
             TopMost = true;
-            TransparencyKey = Color.White;
+            TransparencyKey = Color.FromArgb(96, 64, 32);
             Load += FrmHantekUI_Load;
             Layout += FrmHantekUI_Layout;
             PnlMain.ResumeLayout(false);

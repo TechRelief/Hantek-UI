@@ -29,6 +29,9 @@ namespace Hantek_UI
     {
         #region Local Variables
 
+        /// <summary>The NoColor is used to make a window transparent, it is a color not likely to be used for anything so it should be safe.</summary>
+        private Color NoColor = Color.FromArgb(96, 64, 32);
+
         /// <summary>
         /// The device name
         /// </summary>
@@ -140,7 +143,6 @@ namespace Hantek_UI
             catch (Exception ex)
             {
                 ReportError(ex.Message);
-                //MessageBox.Show($"SetMode(btn) returned an error: {ex.Message}");
                 return MeasureMode.None;
             }
             finally
@@ -514,15 +516,12 @@ namespace Hantek_UI
             if (isTransparent)
             {
                 Settings.Default.WindowColor = Color.Transparent;
-                color = Color.Black;
-                TransparencyKey = color;
-                BackColor = color;
+                TransparencyKey = NoColor;
+                BackColor = NoColor;
             }
             else
             {
-                if (color == Color.White) //If White some of the controls won't show up!
-                    color = Color.Black;
-                TransparencyKey = Color.White;
+                TransparencyKey = NoColor;
                 BackColor = color;
             }
             Settings.Default.Save();
@@ -599,6 +598,7 @@ namespace Hantek_UI
         {
             ToggleToolBar();
         }
+
         /// <summary>
         /// Hilites the specified BTN.
         /// </summary>

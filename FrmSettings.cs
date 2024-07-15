@@ -26,6 +26,7 @@ namespace Hantek_UI
         public decimal? Interval { get; set; }
 
         private bool initializing;
+
         private void FrmSettings_Load(object sender, EventArgs e)
         {
             initializing = true;
@@ -45,7 +46,10 @@ namespace Hantek_UI
             Color color = colorBtn.BackColor;
             using ColorDialog dlgColor = new();
             dlgColor.AnyColor = true;
-            dlgColor.Color = color;
+            if (color == Color.Transparent)
+                dlgColor.Color = Color.FromArgb(96, 64, 32);
+            else
+                dlgColor.Color = color;
             DialogResult rslt = dlgColor.ShowDialog(this);
             if ((rslt == DialogResult.OK) && (color != dlgColor.Color))
                 return dlgColor.Color;

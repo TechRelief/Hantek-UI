@@ -160,7 +160,7 @@
             // BtnWindowColor
             // 
             BtnWindowColor.Anchor = AnchorStyles.Left;
-            BtnWindowColor.BackColor = Color.Gray;
+            BtnWindowColor.BackColor = Color.FromArgb(96, 64, 32);
             BtnWindowColor.FlatStyle = FlatStyle.Flat;
             BtnWindowColor.Location = new Point(103, 12);
             BtnWindowColor.Name = "BtnWindowColor";
